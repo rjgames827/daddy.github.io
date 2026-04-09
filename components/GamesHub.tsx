@@ -201,16 +201,8 @@ export function GamesHub() {
       const fullscreenBtn = document.getElementById("fullscreenBtn");
       if (backBtn) backBtn.addEventListener("click", (window as any).closegme);
       if (fullscreenBtn) fullscreenBtn.addEventListener("click", () => {
-        const container = document.getElementById("gmePageContainer");
-        if (container) {
-          if (document.fullscreenElement) {
-            document.exitFullscreen();
-          } else {
-            container.requestFullscreen().catch(err => {
-              console.error("Fullscreen request failed:", err);
-            });
-          }
-        }
+        const frame = document.getElementById("gmePageFrame");
+        if (frame) frame.requestFullscreen();
       });
 
       const handleKeyDown = (event: KeyboardEvent) => {
